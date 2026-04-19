@@ -1,0 +1,28 @@
+
+model [L] {
+    symbols { 0, a, b, c }
+
+    bin ord {
+        # 0 < a
+        if (('left is .0) and ('right is .a)) {
+            return [Boolean].True;
+        }
+        return [Boolean].False;
+    }
+
+    un shift {
+        # unary operator that shifts all symbols left
+        if ('val is .a)
+            return .0;
+        if ('val is .b)
+            return .a;
+        if ('val is .c)
+            return .b;
+        return .0;
+    }
+}
+
+# The shift element of element 'b' has a parent
+form tree_proof<> = forall 'x (('x is [L].b) implies (exists 'y ('y ord (shift 'x))));
+
+print using [L] ( 'tree_proof<> );
