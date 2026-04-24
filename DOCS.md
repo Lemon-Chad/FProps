@@ -11,6 +11,7 @@
   - [Switching Models](#switching-models)
   - [Bodys](#bodys)
   - [Branches](#branches)
+  - [Quantifiers](#quantifiers)
 
 
 FProps is an implementation of First-Order Logic in a programmatical form. This language allows you
@@ -142,4 +143,17 @@ if ('x and 'y) {
 } else {
     print [Boolean].False;
 }
+```
+
+## Quantifiers
+
+There are quantifier statements that can be used, and are executed under the current model.
+The two quantifiers are `forall` and `exists`. They take a variable name to assign each
+element to, and an expression to evaluate for each element.
+
+```fpr
+# For every element x in [Boolean], 
+# there exists an element y in [Boolean] 
+# such that x and y is true
+print forall 'x (exists 'y ('x and 'y) ); # False
 ```
