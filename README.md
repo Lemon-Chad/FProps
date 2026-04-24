@@ -1,5 +1,7 @@
 # FProp
 
+[DOCUMENTATION](DOCS.md)
+
 ## Basic Functionality
 ```
 let 'x = True;
